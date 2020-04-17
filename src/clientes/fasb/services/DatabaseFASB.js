@@ -3,9 +3,10 @@
 import DatabaseMonitor from '../../../services/DatabaseMonitor';
 import databaseConfig from '../config/database';
 import Mail from '../../../lib/Mail';
+import Telegram from '../../../lib/Telegram';
 import mailConfig from '../config/mail';
 import template from '../config/mailTemplate';
-import Telegram from '../../../lib/Telegram';
+import telegramTemplate from '../config/telegramTemplate';
 
 const service = 'database';
 
@@ -27,9 +28,7 @@ async function start() {
       })
     );
 
-    Telegram(
-      `Problema solucioanado Banco de Dados\n\n${new Date()}\n\nConnection ${status}`
-    );
+    Telegram(telegramTemplate.sucess(status));
 
     sendedMail = false;
   }
@@ -44,7 +43,7 @@ async function start() {
       })
     );
 
-    Telegram(`Perda de conexão Banco de Dados\n\n${new Date()}\n\n${err}`);
+    Telegram(telegramTemplate.error(err));
 
     sendedMail = true;
   }

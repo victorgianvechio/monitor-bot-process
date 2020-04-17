@@ -1,3 +1,5 @@
+import solution from './solutionErrorMessage';
+
 export default obj => {
   return {
     title: `${obj.title}`,
@@ -7,6 +9,7 @@ export default obj => {
                 <b>${obj.log}</b>
                 <br />
                 <br />
+                ${solution(obj.log)}
                 <b>Monitor Bot</b>`,
   };
 };
