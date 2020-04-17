@@ -8,7 +8,7 @@ async function start() {
   const page = await browser.newPage();
   await page.goto('https://www.bing.com/covid');
 
-  await page.waitForNavigation();
+  await page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 50000 });
   const confirmed = await page.evaluate(() => {
     let data = '';
     try {
