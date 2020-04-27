@@ -11,6 +11,7 @@
   ],
   "comments": false,
   "ignore": [
-    "src/utils/encrypt.js"
+    "src/utils/encrypt.js",
+    "test"
   ]
 }

@@ -19,7 +19,8 @@
     "monitor:clear-log-fasb": "rm -rf ~/.pm2/logs/fasb",
     "monitor:clear-log-corona": "rm -rf ~/.pm2/logs/coronavirus",
     "monitor:start-fasb": "node dist/clientes/fasb/index.js",
-    "monitor:start-coronavirus": "node dist/clientes/coronavirus/index.js"
+    "monitor:start-coronavirus": "node dist/clientes/coronavirus/index.js",
+    "test:telegram": "sucrase-node test/telegram.js"
   },
   "engineStrict": true,
   "engines": {

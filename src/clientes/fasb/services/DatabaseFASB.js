@@ -28,7 +28,13 @@ async function start() {
       })
     );
 
-    Telegram(telegramTemplate.sucess(status));
+    Telegram(
+      telegramTemplate({
+        message: 'Problema solucioanado Banco de Dados',
+        log: `Connection ${status}`,
+        isError: false,
+      })
+    );
 
     sendedMail = false;
   }
@@ -39,11 +45,17 @@ async function start() {
       template({
         title: 'Perda de conexão Banco de Dados - FASB',
         message: `Perda de conexão em <b>${new Date()}</b>`,
-        log: `${err}`,
+        log: err,
       })
     );
 
-    Telegram(telegramTemplate.error(err));
+    Telegram(
+      telegramTemplate({
+        message: 'Perda de conexão Banco de Dados',
+        log: err,
+        isError: true,
+      })
+    );
 
     sendedMail = true;
   }

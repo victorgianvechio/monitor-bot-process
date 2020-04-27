@@ -1,4 +1,4 @@
-export default str => {
+function solution(str) {
   if (str.indexOf('ORA-12170') !== -1) {
     return `Possíveis soluções:
             <br />- Verificar se a rede interna e internet estão funcionando;
@@ -16,4 +16,6 @@ export default str => {
   }
 
   return '';
-};
+}
+
+export default solution;
