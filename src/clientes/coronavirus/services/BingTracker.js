@@ -6,9 +6,13 @@ let lastConfirmed = 0;
 async function start() {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-  await page.goto('https://www.bing.com/covid');
 
-  await page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 50000 });
+  // await page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 50000 });
+  await page.goto('https://www.bing.com/covid', {
+    waitUntil: 'load',
+    timeout: 0,
+  });
+
   const confirmed = await page.evaluate(() => {
     let data = '';
     try {

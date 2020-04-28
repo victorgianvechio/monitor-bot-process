@@ -20,7 +20,7 @@ pm2.connect(err => {
         namespace: `${company}`,
         script: './dist/clientes/coronavirus/services/BingTracker.js',
         exec_mode: 'fork',
-        watch: false,
+        watch: true,
         env_production: {
           NODE_ENV: 'production',
         },
