@@ -1,5 +1,9 @@
 function solution(str) {
-  if (str.indexOf('ORA-12170') !== -1) {
+  const { errorNum } = str;
+
+  // ORA-12170 - connection timeout
+
+  if (errorNum === 12170) {
     return `Possíveis soluções:
             <br />- Verificar se a rede interna e internet estão funcionando;
             <br />- Verificar se o servidor de Banco de Dados está ligado e com logon efetuado;
@@ -7,7 +11,7 @@ function solution(str) {
             <br />`;
   }
 
-  if (str.indexOf('ORA-12541') !== -1) {
+  if (errorNum === 12541) {
     return `Possíveis soluções:
             <br />- Verificar se a rede interna e internet estão funcionando;
             <br />- Verificar se o servidor de Banco de Dados está ligado e com logon efetuado;

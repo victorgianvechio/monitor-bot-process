@@ -4,14 +4,18 @@ const timer = 300000;
 let lastConfirmed = 0;
 
 async function start() {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
-
-  // await page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 50000 });
-  await page.goto('https://www.bing.com/covid', {
-    waitUntil: 'load',
-    timeout: 0,
-  });
+  try {
+    // await page.waitForNavigation({ waitUntil: 'networkidle0', timeout: 50000 });
+    await page.goto('https://www.bing.com/covid', {
+      waitUntil: 'load',
+      timeout: 0,
+    });
+  } catch (err) {
+    console.log(err);
+    await browser.close();
+  }
 
   const confirmed = await page.evaluate(() => {
     let data = '';

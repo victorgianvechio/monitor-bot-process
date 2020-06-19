@@ -1,4 +1,4 @@
-import solution from './solutionErrorMessage';
+import solution from './solutionErrorMessageTelegram';
 
 export default obj => {
   if (obj.isError) {
