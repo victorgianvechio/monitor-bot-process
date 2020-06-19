@@ -1,7 +1,16 @@
 function solution(str) {
   const { errorNum } = str;
 
+  // 0 - Client Oracle não encontrado
   // ORA-12170 - connection timeout
+
+  if (errorNum === 0) {
+    return `Possíveis soluções:
+            <br />- Baixar o Oracle Instant Client;
+            <br />- Adicionar o caminnho no PATH do Windows;
+            <br />
+            <br />`;
+  }
 
   if (errorNum === 12170) {
     return `Possíveis soluções:
